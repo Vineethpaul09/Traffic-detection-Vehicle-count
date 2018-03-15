@@ -5,13 +5,12 @@ import numpy
 # capture frames from a video
 cap = cv2.VideoCapture('video1.MP4')
 cap1 = cv2.VideoCapture('video.avi')
-#cap2 =cv2.videoCapture("file name");
+
  
 # Trained XML classifiers describes some features of some object we want to detect
 car_cascade = cv2.CascadeClassifier('cars.xml')
 car_cascade1 = cv2.CascadeClassifier('cars.xml')
-fgbg = cv2.bgsegm.createBackgroundSubtractorMOG()
-# loop runs if capturing has been initialized.
+
 while True:
     # reads frames from a video
     ret, frames = cap.read()
@@ -41,13 +40,6 @@ while True:
    # Display frames in a window 
         cv2.imshow('video2', frames1)
     
-    fgmask = fgbg.apply(frame)
-
-    cv2.imshow('frame',fgmask)
-    k = cv2.waitKey(30) & 0xff
-    if k == 27:
-        break
-     
     # Wait for Esc key to stop
     if cv2.waitKey(33) == 27:
         break
